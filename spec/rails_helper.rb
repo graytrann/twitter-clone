@@ -32,7 +32,14 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.add_setting :use_active_record, default: true
+  config.add_setting :use_transactional_fixtures, alias_with: :use_transactional_examples
+  config.add_setting :use_instantiated_fixtures
+  config.add_setting :global_fixtures
+  config.add_setting :fixture_path
+  config.include RSpec::Rails::FixtureSupport, :use_fixtures
+
   config.include FactoryBot::Syntax::Methods
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
 
-gem 'bootsnap', require: false
+gem "bootsnap", require: false
 gem "cssbundling-rails"
-gem 'bootstrap', '~> 5.0.0'
+gem "bootstrap", "~> 5.0.0"
+
 gem "jbuilder"
 gem "jsbundling-rails"
 gem "pg", "~> 1.1"
@@ -22,10 +23,11 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "devise"
+  gem "shoulda-matchers", "~> 3.1"
   gem "factory_bot_rails"
   gem "faker", git:"https://github.com/faker-ruby/faker.git",branch: "main"
   gem "pry-rails"
-  gem "rspec-rails","~> 5.1",">=5.1.2"
+  gem 'rspec-rails'
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 

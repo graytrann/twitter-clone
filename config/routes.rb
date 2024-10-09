@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   # # root "posts#index"
 
   root "home#index"
+
+  resources :usernames, only: [:new, :update]
 end
