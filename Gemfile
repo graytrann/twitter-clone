@@ -25,7 +25,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "faker", git:"https://github.com/faker-ruby/faker.git",branch: "main"
   gem "pry-rails"
-  gem "rspec-rails","~> 5.1",">=5.1.2"
+  gem "rspec-rails","~> 7.0"
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
