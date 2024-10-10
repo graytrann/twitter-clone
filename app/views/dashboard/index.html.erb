@@ -1,15 +1,99 @@
-<!-- Blank for now -->
-<h1>We're logged in</h1>
-<%= link_to "Logout", destroy_user_session_path	, data: {"turbo-method":"delete"}, class: "btn btn-primary btn-lg"%>
 
-<%= form_with model: Tweet.new, url: tweets_path, method: :post, local: true do |f|%>
+<div class="container py-2">
+  <div class="row">
+<!--    SIDEBAR-->
+    <aside class="col-3 side-navbar">
 
-  <ul>
-    <% Tweet.find_each do |tweet| %>
-      <li><%= tweet.body%></li>
+<!--      TWITTER LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-4 mx-3" do %>
+       <div class="px-2 py-2 rounded-circle">
+           <span><%= image_tag "twitter.png", width: "32"%></span>
+       </div>
+      <% end %>
+
+<!--      HOME LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-1 text-decoration-none" do %>
+        <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+          <span><%= image_tag "home.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Home</p>
+        </div>
+      <% end %>
+
+<!--      EXPLORE LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-1 text-decoration-none " do %>
+        <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+          <span><%= image_tag "hastag.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Explore</p>
+        </div>
     <% end %>
 
-    <%= f.text_field :body %>
-    <%= f.submit %>
-<% end %>
-</ul>
+<!--      NOTIFICATION LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-1 text-decoration-none" do %>
+        <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+          <span><%= image_tag "notification.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Notifications</p>
+        </div>
+      <% end %>
+
+<!--      MESSAGE LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-1 text-decoration-none" do %>
+        <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+          <span><%= image_tag "email.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Messages</p>
+        </div>
+      <% end %>
+
+      <!--      BOOKMARKS LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-1 text-decoration-none " do %>
+        <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+          <span><%= image_tag "bookmark-white.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Bookmarks</p>
+        </div>
+      <% end %>
+
+      <!--      TWITTER BLUE LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-1 text-decoration-none " do %>
+        <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+          <span><%= image_tag "twitter.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Twitter</p>
+        </div>
+      <% end %>
+
+      <!--      PROFILE LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-1 text-decoration-none " do %>
+        <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+          <span><%= image_tag "user.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Profile</p>
+        </div>
+      <% end %>
+
+      <!--      MORE LOGO-->
+      <%= link_to root_path, class: "d-flex align-items-center fs-4 text-decoration-none " do %>
+        <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+          <span><%= image_tag "more.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">More</p>
+        </div>
+      <% end %>
+
+<!--      TWEET BUTTON-->
+      <div class="d-flex align-items-center fs-4 my-2 py-3 mx-3">
+      <%= button_tag "Tweet", class: "btn btn-primary btn-lg rounded-pill w-100"%>
+      </div>
+
+<!--      LOGOUT BUTTON-->
+    <div >
+      <%= link_to "Logout", destroy_user_session_path	, data: {"turbo-method":"delete"}, class: "btn btn-primary btn-lg"%>
+    </div>
+
+    </aside>
+<!--    ARTICLE-->
+    <div class="col">
+      <%= form_with model: Tweet.new, url: tweets_path, method: :post, local: true do |f|%>
+        <%= f.text_field :body %>
+        <%= f.submit %>
+      <% end %>
+      <ul>
+        <% Tweet.find_each do |tweet| %>
+          <li><%= tweet.body%></li>
+        <% end %>
+      </ul>
+    </div>
+<!--    LEFT SIDE-->
+    <div class="col-3">
+      Column
+    </div>
+  </div>
+</div>
+
