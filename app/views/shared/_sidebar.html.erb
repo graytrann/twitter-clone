@@ -1,0 +1,97 @@
+<aside class="col-3 side-navbar">
+
+  <!--      TWITTER LOGO-->
+  <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-4 mx-3" do %>
+    <div class="px-2 py-2 rounded-circle">
+      <span><%= image_tag "twitter.png", width: "32"%></span>
+    </div>
+  <% end %>
+
+  <!--      HOME LOGO-->
+  <%= link_to "#", class: "d-flex align-items-center fs-4 mb-1 text-decoration-none" do %>
+    <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+      <span><%= image_tag "home.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Home</p>
+    </div>
+  <% end %>
+
+  <!--      EXPLORE LOGO-->
+  <%= link_to "#", class: "d-flex align-items-center fs-4 mb-1 text-decoration-none " do %>
+    <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+      <span><%= image_tag "hastag.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Explore</p>
+    </div>
+  <% end %>
+
+  <!--      NOTIFICATION LOGO-->
+  <%= link_to "#", class: "d-flex align-items-center fs-4 mb-1 text-decoration-none" do %>
+    <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+      <span><%= image_tag "notification.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Notifications</p>
+    </div>
+  <% end %>
+
+  <!--      MESSAGE LOGO-->
+  <%= link_to "#", class: "d-flex align-items-center fs-4 mb-1 text-decoration-none" do %>
+    <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+      <span><%= image_tag "email.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Messages</p>
+    </div>
+  <% end %>
+
+  <!--      BOOKMARKS LOGO-->
+  <%= link_to "#", class: "d-flex align-items-center fs-4 mb-1 text-decoration-none " do %>
+    <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+      <span><%= image_tag "bookmark-white.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Bookmarks</p>
+    </div>
+  <% end %>
+
+  <!--      TWITTER BLUE LOGO-->
+  <%= link_to "#", class: "d-flex align-items-center fs-4 mb-1 text-decoration-none " do %>
+    <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+      <span><%= image_tag "twitter.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Twitter</p>
+    </div>
+  <% end %>
+
+  <!--      PROFILE LOGO-->
+  <%= link_to "#", class: "d-flex align-items-center fs-4 mb-1 text-decoration-none " do %>
+    <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+      <span><%= image_tag "user.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">Profile</p>
+    </div>
+  <% end %>
+
+  <!--      MORE LOGO-->
+  <%= link_to "#", class: "d-flex align-items-center fs-4 text-decoration-none " do %>
+    <div class="d-flex align-items-center fs-4 px-4 py-2 rounded-pill">
+      <span><%= image_tag "more.png", width: "32", class: "me-3"%></span><p class="mt-2 mb-0 mx-1">More</p>
+    </div>
+  <% end %>
+
+  <!--      TWEET BUTTON-->
+  <div class="d-flex align-items-center fs-4 my-2 py-3 mx-3">
+    <%= button_tag "Tweet", class: "btn btn-lg btn-twitter rounded-pill w-100", data: { "bs-toggle": "modal", "bs-target": "#exampleModal" } %>
+  </div>
+
+  <!--      LOGOUT BUTTON-->
+  <div class="d-flex align-items-center fs-4 my-2 py-3 mx-3">
+    <%= link_to "Logout", destroy_user_session_path	, data: {"turbo-method":"delete"}, class: "twitter-link"%>
+  </div>
+
+  <!--      END OF ASIDE-->
+
+</aside>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0 ">
+<!--        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>-->
+        <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/tweet_form" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

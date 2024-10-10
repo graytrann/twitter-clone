@@ -17,9 +17,7 @@ class UsernamesController < ApplicationController
       redirect_to new_username_path
     end
   end
-
-  private
-  def username_params
+   def username_params
     params.require(:user).permit(:username)
   end
 end
