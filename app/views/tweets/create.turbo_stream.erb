@@ -1,0 +1,9 @@
+<%= turbo_stream.prepend "tweets" do %>
+  <%= render partial: "tweets/tweet", locals: { tweet: @tweet } %>
+<% end %>
+
+<script type="application/javascript">
+   if(document.querySelector('.modal.show').length > 0) {
+       document.querySelector('.modal.show').classList.remove('show');
+   }
+</script>

@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    dashboard_path
+    if resource.username.blank?
+      new_username_path
+    else
+      dashboard_path
+    end
   end
 
   def redirect_to_username_form
