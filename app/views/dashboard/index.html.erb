@@ -14,7 +14,11 @@
         <%# end %>
 <!--      </ul>-->
   <div id="tweets">
-    <%= render Tweet.order(created_at: :desc) %>
+    <%# Tweet.order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet) }.each do |tweet_presenter| %>
+        <%#= render "tweets/tweet", locals: { tweet_presenter: tweet_presenter } %>
+    <%# end %>
+    <%#= render partial: "tweets/tweet", locals: { } %>
+    <%= render partial: "tweets/tweet", collection: Tweet.order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet)}, as:  :tweet_presenter %>
   </div>
     </div>
 <!--    LEFT SIDE-->

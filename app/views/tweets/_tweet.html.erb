@@ -1,14 +1,34 @@
-<%= turbo_frame_tag dom_id(tweet) do %>
-  <div class="custom-tweet  py-4 px-4">
-    <% if (Time.zone.now - tweet.created_at) > 1.day %>
-      <p>@<%= tweet.user.username  %> . <%= tweet.created_at.strftime("%b %-d") %></p>
-      . <p><%= tweet.user.display_name%></p>
+<%= turbo_frame_tag dom_id(tweet_presenter.tweet) do %>
+  <div class="custom-tweet d-flex py-4 px-4">
+    <% if tweet_presenter.user.present? && tweet_presenter.user.avatar.present? %>
+      <div class="flex-shrink-0">
+        <%= image_tag tweet_presenter.user.avatar, size: "48x48", class: "rounded-circle" %>
+      </div>
     <% else %>
-      <p>@<%= tweet.user.username  %> . <%= time_ago_in_words(tweet.created_at) %></p>
-      . <p><%= tweet.user.display_name%></p>
+      <div class="flex-shrink-0">
+        <%= image_tag 'twitter.png',  size: "48x48", class: "rounded-circle" %> <!-- Ảnh mặc định -->
+      </div>
     <% end %>
-    <p class="mb-0">
-      <%= tweet.body %>
-    </p>
+    <div class="flex-grow-1 ms-3">
+      <%# if (Time.zone.now - tweet_presenter.created_at) > 1.day %>
+<!--        <p><span class="fw-bolder"><%#= tweet.user.display_name%></span><span class="text-muted">@<%#= tweet.user.username  %></span><span> · <%#= tweet.created_at.strftime("%b %-d") %></p></span>-->
+
+      <%# else %>
+<!--        <p><span class="fw-bold"><%#= tweet.user.display_name%></span><span class="text-muted"> @<%#= tweet.user.username  %></span><span> · <%#= time_ago_in_words(tweet.created_at) %></span></p>-->
+
+      <%# end %>
+      <p class="mb-0">
+        <span class="fw-bolder"><%= tweet_presenter.user.display_name %>
+        </span>
+        <span class="text-muted">@<%= tweet_presenter.user.username %>·
+          <%= tweet_presenter.created_at %>
+        </span>
+        <div>
+          <%= tweet_presenter.body %>
+        </div>
+      </p>
+    </div>
+
+
   </div>
 <% end %>
