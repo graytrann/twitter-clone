@@ -5,20 +5,8 @@
      <div class="mb-4">
        <%= render"shared/tweet_form", local: false %>
      </div>
-<!--      <ul>-->
-        <%# Tweet.order(created_at: :desc).each do |tweet| %>
-<!--          <li><%#= tweet.body%></li>-->
-
-          <%#aadswdsawdawdadasdwdasdwdsdawdsdasaaasdsawdsawdsd.    sdwdwdwwasad= render "tweets/tweet", tweet: tweet %>
-
-        <%# end %>
-<!--      </ul>-->
   <div id="tweets">
-    <%# Tweet.order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet) }.each do |tweet_presenter| %>
-        <%#= render "tweets/tweet", locals: { tweet_presenter: tweet_presenter } %>
-    <%# end %>
-    <%#= render partial: "tweets/tweet", locals: { } %>
-    <%= render partial: "tweets/tweet", collection: Tweet.order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet)}, as:  :tweet_presenter %>
+    <%= render partial: "tweets/tweet", collection: @tweets, as:  :tweet_presenter %>
   </div>
     </div>
 <!--    LEFT SIDE-->

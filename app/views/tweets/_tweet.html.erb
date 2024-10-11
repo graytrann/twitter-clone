@@ -10,13 +10,6 @@
       </div>
     <% end %>
     <div class="flex-grow-1 ms-3">
-      <%# if (Time.zone.now - tweet_presenter.created_at) > 1.day %>
-<!--        <p><span class="fw-bolder"><%#= tweet.user.display_name%></span><span class="text-muted">@<%#= tweet.user.username  %></span><span> · <%#= tweet.created_at.strftime("%b %-d") %></p></span>-->
-
-      <%# else %>
-<!--        <p><span class="fw-bold"><%#= tweet.user.display_name%></span><span class="text-muted"> @<%#= tweet.user.username  %></span><span> · <%#= time_ago_in_words(tweet.created_at) %></span></p>-->
-
-      <%# end %>
       <p class="mb-0">
         <span class="fw-bolder"><%= tweet_presenter.user.display_name %>
         </span>
@@ -28,7 +21,5 @@
         </div>
       </p>
     </div>
-
-
   </div>
 <% end %>
