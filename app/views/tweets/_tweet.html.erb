@@ -43,12 +43,23 @@
         <% end %>
       </div>
       <!--LIKES-->
-      <div>
-        <%= link_to "#", class: "text-decoration-none text-black likes" do  %>
-          <%= image_tag "heart.png",size: "20x20", class:"me-1" %>
-          <span>LIKE</span>
-        <% end %>
-      </div>
+
+      <% if tweet_presenter.likes.include?(current_user.likes.find_by(tweet_id: tweet_presenter.tweet.id)) %>
+        <div>
+          <%= button_to tweet_like_path(tweet_presenter.tweet, tweet_presenter.tweet.likes.find_by(user: current_user)), method: :delete, data: { turbo_method: :delete }, class: "text-decoration-none text-black likes shadow-none border-0 bg-transparent" do %>
+            <%= image_tag "heart_red.png", size: "20x20", class: "me-1" %>
+            <span><%= tweet_presenter.likes.size %></span>
+          <% end %>
+        </div>
+      <%else %>
+        <div>
+          <%= button_to tweet_likes_path(tweet_presenter.tweet),method: :post, data: { turbo_method: :post }, class: "text-decoration-none text-black likes  shadow-none border-0 bg-transparent  " do  %>
+              <%= image_tag "heart_unfilled.png",size: "20x20", class:"me-1" %>
+            <span><%= tweet_presenter.likes.size %></span>
+          <% end %>
+        </div>
+      <% end %>
+
 
       <!--BOOKMARK-->
       <div>
@@ -57,7 +68,7 @@
           <span>BOOKMARK</span>
         <% end %>
       </div>
-      
+
 
       
 
