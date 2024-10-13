@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(tweet_presenter.tweet) do %>
-  <div class="custom-tweet d-flex py-4 px-4">
+  <div class="custom-tweet d-flex py-3 px-3">
     <% if tweet_presenter.user.present? && tweet_presenter.user.avatar.present? %>
       <div class="flex-shrink-0">
         <%= image_tag tweet_presenter.user.avatar, size: "48x48", class: "rounded-circle" %>
@@ -13,13 +13,55 @@
       <p class="mb-0">
         <span class="fw-bolder"><%= tweet_presenter.user.display_name %>
         </span>
-        <span class="text-muted">@<%= tweet_presenter.user.username %>·
+        <span class="text-muted">@<%= tweet_presenter.user.username %> ·
           <%= tweet_presenter.created_at %>
         </span>
-        <div>
-          <%= tweet_presenter.body %>
-        </div>
       </p>
+      <p> <%= tweet_presenter.body %></p>
+
+
+    <div class="d-flex justify-content-between align-items-center action_links">
+    <!--VIEWS-->
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black views" do %>
+        <%= image_tag "graph.png",size: "20x20", class:"me-1" %>
+          <span>Views</span>
+        <% end %>
+      </div>
+    <!--REPLIES-->
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black replies" do %>
+          <%= image_tag "speech-bubble.png",size: "20x20", class:"me-1" %>
+          <span>REPLIES</span>
+        <% end %>
+      </div>
+    <!--RETWEETS-->
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black retweets" do %>
+          <%= image_tag "repost.png",size: "20x20", class:"me-1" %>
+          <span>RETWEETS</span>
+        <% end %>
+      </div>
+      <!--LIKES-->
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black likes" do  %>
+          <%= image_tag "heart.png",size: "20x20", class:"me-1" %>
+          <span>LIKE</span>
+        <% end %>
+      </div>
+
+      <!--BOOKMARK-->
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black bookmark" do  %>
+          <%= image_tag "bookmark-white.png",size: "20x20", class:"me-1" %>
+          <span>BOOKMARK</span>
+        <% end %>
+      </div>
+      
+
+      
+
+    </div>
     </div>
   </div>
 <% end %>

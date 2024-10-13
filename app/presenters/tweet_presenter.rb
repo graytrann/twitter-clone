@@ -7,6 +7,8 @@ class TweetPresenter
   attr_reader :tweet
 
   delegate :user, :body, to: :tweet
+
+  delegate :display_name, :username, :avatar, to: :user
   def created_at
     if (Time.zone.now - tweet.created_at) > 1.day
       tweet.created_at.strftime("%b %-d")

@@ -6,4 +6,31 @@
   &:hover{
     background-color: $gray-100;
   }
+
+  .action_links{
+    a{
+      span {
+        position: relative;
+        top: 2px;
+      }
+
+      &.views, &.replies, &.bookmark{
+        &:hover {
+          color: $twitter-blue !important;
+        }
+      }
+
+      &.retweets{
+        &:hover{
+          color: $green-300 !important;
+        }
+      }
+
+      &.likes{
+        &:hover{
+          color: red !important;
+        }
+      }
+    }
+  }
 }
