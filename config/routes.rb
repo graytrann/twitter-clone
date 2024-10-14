@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :tweets, only: :create do
     resources :likes, only: [ :create, :destroy ]
+    resources :bookmarks, only: [ :create, :destroy ]
   end
   get :dashboard, to: 'dashboard#index'
   # # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

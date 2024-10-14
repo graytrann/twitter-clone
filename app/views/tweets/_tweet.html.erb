@@ -45,30 +45,38 @@
       <!--LIKES-->
 
 <!--      // tweet_presenter ở đây có thể . likes là do có delegate ở class controller, không thì ta phải tweet_presenter.tweet.likes.includes-->
-      <% if tweet_presenter.likes.include?(current_user.likes.find_by(tweet_id: tweet_presenter.tweet.id)) %>
-        <div>
-          <%= button_to tweet_like_path(tweet_presenter.tweet, tweet_presenter.tweet.likes.find_by(user: current_user)), method: :delete, data: { turbo_method: :delete }, class: "text-decoration-none text-black likes shadow-none border-0 bg-transparent" do %>
-            <%= image_tag "heart_red.png", size: "20x20", class: "me-1" %>
-            <span><%= tweet_presenter.likes.size %></span>
-          <% end %>
-        </div>
-      <%else %>
-        <div>
-          <%= button_to tweet_likes_path(tweet_presenter.tweet),method: :post, data: { turbo_method: :post }, class: "text-decoration-none text-black likes  shadow-none border-0 bg-transparent  " do  %>
-              <%= image_tag "heart_unfilled.png",size: "20x20", class:"me-1" %>
-            <span><%= tweet_presenter.likes.size %></span>
-          <% end %>
-        </div>
+
+      <%# if tweet_presenter.tweet_liked_by_current_user? %>
+<!--        <div>-->
+          <%#= button_to tweet_like_path(tweet_presenter.tweet, current_user.likes.find_by(tweet_id: tweet_presenter.tweet.id)), method: :delete, data: { turbo_method: :delete }, class: "text-decoration-none text-black likes shadow-none border-0 bg-transparent" do %>
+            <%#= image_tag asset_path("heart_red.png"), size: "20x20", class: "me-1" %>
+<!--            <span><%#= tweet_presenter.likes_count %></span>-->
+          <%# end %>
+<!--        </div>-->
+      <%# else %>
+<!--        <div>-->
+          <%#= button_to tweet_likes_path(tweet_presenter.tweet), method: :post, data: { turbo_method: :post }, class: "text-decoration-none text-black likes shadow-none border-0 bg-transparent" do %>
+            <%#= image_tag asset_path("heart_unfilled.png"), size: "20x20", class: "me-1" %>
+<!--            <span><%#= tweet_presenter.likes_count %></span>-->
+          <%# end %>
+<!--        </div>-->
+      <%# end %>
+<!--      LIKES-->
+      <%= button_to tweet_presenter.like_tweet_url, method: tweet_presenter.method_like_return, data: tweet_presenter.turbo_like_data_method, class: "text-decoration-none text-black likes shadow-none border-0 bg-transparent" do %>
+        <%= image_tag asset_path(tweet_presenter.like_heart_image), size: "20x20", class: "me-1" %>
+        <span><%= tweet_presenter.likes_count %></span>
+      <% end %>
+
+<!--      BOOKMARKS-->
+      <%= button_to tweet_presenter.bookmark_tweet_url, method: tweet_presenter.method_bookmark_return, data: tweet_presenter.turbo_bookmark_data_method, class: "text-decoration-none text-black likes shadow-none border-0 bg-transparent" do %>
+        <%= image_tag asset_path(tweet_presenter.bookmark_image), size: "20x20", class: "me-1" %>
+        <span><%= tweet_presenter.bookmark_text %></span>
       <% end %>
 
 
-      <!--BOOKMARK-->
-      <div>
-        <%= link_to "#", class: "text-decoration-none text-black bookmark" do  %>
-          <%= image_tag "bookmark-white.png",size: "20x20", class:"me-1" %>
-          <span>BOOKMARK</span>
-        <% end %>
-      </div>
+
+
+
 
 
       
