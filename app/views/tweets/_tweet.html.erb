@@ -44,6 +44,7 @@
       </div>
       <!--LIKES-->
 
+<!--      // tweet_presenter ở đây có thể . likes là do có delegate ở class controller, không thì ta phải tweet_presenter.tweet.likes.includes-->
       <% if tweet_presenter.likes.include?(current_user.likes.find_by(tweet_id: tweet_presenter.tweet.id)) %>
         <div>
           <%= button_to tweet_like_path(tweet_presenter.tweet, tweet_presenter.tweet.likes.find_by(user: current_user)), method: :delete, data: { turbo_method: :delete }, class: "text-decoration-none text-black likes shadow-none border-0 bg-transparent" do %>
