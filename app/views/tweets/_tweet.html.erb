@@ -35,13 +35,12 @@
           <span>REPLIES</span>
         <% end %>
       </div>
+
     <!--RETWEETS-->
-      <div>
-        <%= link_to "#", class: "text-decoration-none text-black retweets" do %>
-          <%= image_tag "repost.png",size: "20x20", class:"me-1" %>
-          <span>RETWEETS</span>
-        <% end %>
-      </div>
+      <%= button_to tweet_presenter.retweet_tweet_url, method: tweet_presenter.method_retweet_return, data: tweet_presenter.turbo_retweet_data_method, class: "text-decoration-none text-black likes shadow-none border-0 bg-transparent" do %>
+        <%= image_tag asset_path(tweet_presenter.retweet_image), size: "20x20", class: "me-1" %>
+        <span><%= tweet_presenter.retweets_count %></span>
+      <% end %>
       <!--LIKES-->
 
 <!--      // tweet_presenter ở đây có thể . likes là do có delegate ở class controller, không thì ta phải tweet_presenter.tweet.likes.includes-->
