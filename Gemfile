@@ -3,7 +3,7 @@ source "https://rubygems.org"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
-gem "bootstrap", "~> 5.0.0"
+gem "bootstrap", "~> 5.3.3"
 
 gem "jbuilder"
 gem "jsbundling-rails"
