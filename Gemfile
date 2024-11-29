@@ -23,7 +23,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "devise"
-  gem "shoulda-matchers", "~> 3.1"
+  gem "shoulda-matchers", "~> 6.4"
   gem "factory_bot_rails"
   gem "faker", git:"https://github.com/faker-ruby/faker.git",branch: "main"
   gem "pry-rails"
